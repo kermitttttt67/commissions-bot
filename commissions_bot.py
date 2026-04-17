@@ -3,7 +3,8 @@ from discord.ui import Button, View
 import aiohttp
 import json
 
-TOKEN = "MTQ5NDU1OTgxNDc1ODY5NDk2Mw.Gyojsh.NuH9FJRthe8aHcsczjoNCWMqe3-DBFP7-IGk60"
+import os
+TOKEN = os.getenv("TOKEN")
 GUILD_ID = 1487741934490620106
 WEBHOOK_URL = "https://discord.com/api/webhooks/1494562400714625044/dkmIvetQyufBsyMp_wWroxXDC4fDYxRx4JyJemlN5PNr2kqxprKjtXCN0Ai1YxmaVqXo"
 COMMISSIONS_CHANNEL_NAME = "website-commissions"
