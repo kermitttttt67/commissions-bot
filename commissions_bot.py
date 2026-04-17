@@ -2,8 +2,8 @@ import discord
 from discord.ui import Button, View
 import aiohttp
 import json
-
 import os
+
 TOKEN = os.getenv("TOKEN")
 GUILD_ID = 1487741934490620106
 WEBHOOK_URL = "https://discord.com/api/webhooks/1494562400714625044/dkmIvetQyufBsyMp_wWroxXDC4fDYxRx4JyJemlN5PNr2kqxprKjtXCN0Ai1YxmaVqXo"
@@ -141,6 +141,7 @@ async def start_web():
 @client.event
 async def on_ready():
     print(f"Logged in as {client.user}")
+    client.add_view(OrderView("", "", "", "", "", ""))
     await start_web()
 
 client.run(TOKEN)
