@@ -73,7 +73,8 @@ async def on_message(message):
         return
     if not message.embeds:
         return
-    if "New Order Request" not in message.embeds[0].title:
+    title = message.embeds[0].title
+    if "New Order Request" not in title and "Booster Order Request" not in title:
         return
     discord_username = "Unknown"
     for field in message.embeds[0].fields:
@@ -81,6 +82,7 @@ async def on_message(message):
             discord_username = field.value
             break
     view = OrderView(discord_username)
-    await message.reply("**Action required:**", view=view)
+    label = "**🔔 Action required:**" if "New Order" in title else "**👑 Booster order — action required:**"
+    await message.reply(label, view=view)
 
 client.run(TOKEN)
